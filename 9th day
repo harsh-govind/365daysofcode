@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+#define ll long long
+#include <bits/stdc++.h>
+
+void find()
+{
+    double radius, k;
+    cin >> radius >> k;
+    k = k / 100;
+    ll x = radius - 1;
+    ll y;
+    y = floor(sqrt(radius * radius - x * x));
+    double d = radius - sqrt(x * x + y * y);
+    if (d <= k)
+    {
+        cout << x << " " << y << "\n";
+    }
+    else
+    {
+        cout << "-1"
+             << "\n";
+    }
+}
+int main()
+{
+    ll t;
+    cin >> t;
+
+    while (t--)
+    {
+        find();
+    }
+    return 0;
+}
