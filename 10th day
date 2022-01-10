@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main(){
+	int T;
+	cin >> T;
+	while (T--){
+		int n;
+		cin >> n;
+		vector<int> arr(n);
+		vector<int> ans(n, 0);
+		for(int i = 0; i < n; i++){
+			cin >> arr[i];
+		}
+		for(int i = 0; i < n; i++){
+			for(int j = i + 1; j < n; j++){
+				if(arr[i] == arr[j]){
+					ans[i]++;
+					ans[j]++;
+				}
+				else if(arr[j] > arr[i]) break;
+			}
+		}
+		for(auto x: ans){
+			cout << x << " ";
+		}
+		cout << endl;
+	}
+    return 0;
+}
