@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+int s[1010];
+bool prime(int x)
+{
+    for (int i = 2; i * i <= x; ++i)
+    {
+        if (x % i == 0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+int main()
+{
+    for (int i = 2; i <= 1000; ++i)
+    {
+        for (int j = i + 1; i * j <= 1000; ++j)
+        {
+            if (prime(i) && prime(j))
+            {
+                s[i * j] = 1;
+            }
+        }
+    }
+    int n;
+    cin >> n;
+    for (int i = 1; i <= n; ++i)
+    {
+        int x;
+        scanf("%d", &x);
+        bool ok = false;
+        for (int j = 2; j < x; ++j)
+        {
+            if (s[j] && s[x - j])
+            {
+                ok = true;
+            }
+        }
+        if (ok)
+        {
+            cout << "YES\n";
+        }
+        else
+        {
+            cout << "NO\n";
+        }
+    }
+    return 0;
+}
