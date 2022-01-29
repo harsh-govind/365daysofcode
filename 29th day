@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+using namespace std;
+void swap(int *x, int *y)
+{
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
+int partition(int arr[], int l, int h)
+{
+    int pivot = arr[l], i = l, j = h;
+    do
+    {
+        do
+        {
+            i++;
+        } while (arr[i] <= pivot);
+        do
+        {
+            j--;
+        } while (arr[j] > pivot);
+        if (i < j)
+        {
+            swap(&arr[i], &arr[j]);
+        }
+    } while (i < j);
+    swap(&arr[l], &arr[j]);
+    return j;
+}
+void quicksort(int arr[], int l, int h)
+{
+    int j;
+    if (l < h)
+    {
+        j = partition(arr, l, h);
+        quicksort(arr, l, j);
+        quicksort(arr, j + 1, h);
+    }
+}
+int main()
+{
+    int arr[] = {7, 74, 26, 23, 45, 27, 35, 77, 54, 33, 12, 45, 43, INT_MAX}, n = 14;
+    quicksort(arr, 0, n - 1);
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+    return 0;
+}
