@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long long int T;
+    cin >> T;
+    for (int t = 0; t < T; t++)
+    {
+        long long int N, D;
+        cin >> N >> D;
+        long long int arr[N];
+        long long int s = 0;
+        for (int i = 0; i < N; i++)
+        {
+            cin >> arr[i];
+            s = s + arr[i];
+        }
+        sort(arr, arr + N, greater<long long int>());
+        for (int i = 0; i < D; i++)
+        {
+            s = s - arr[i];
+        }
+        cout << s << endl;
+    }
+}
