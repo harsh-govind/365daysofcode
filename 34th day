@@ -1,0 +1,39 @@
+#include <limits.h>
+#include <stdio.h>
+struct Height
+{
+    int feet;
+    int inches;
+};
+int findMax(struct Height arr[], int n)
+{
+    int ans = INT_MIN;
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i].feet * 12 + arr[i].inches > ans)
+        {
+            ans = arr[i].feet * 12 + arr[i].inches;
+        }
+    }
+    return ans;
+}
+int main()
+{
+    int t;
+    scanf("%d", &t);
+    while (t--)
+    {
+        int n, tmp1, tmp2;
+        scanf("%d", &n);
+        struct Height arr[n];
+        for (int i = 0; i < n; i++)
+        {
+            scanf("%d %d", &tmp1, &tmp2);
+            arr[i].feet = tmp1;
+            arr[i].inches = tmp2;
+        }
+        int res = findMax(arr, n);
+        printf("%d\n", res);
+    }
+    return 0;
+}
