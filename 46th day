@@ -1,1 +1,75 @@
-.
+#include <bits/stdc++.h>
+using namespace std;
+void merge(int *a, int low, int mid, int high)
+{
+    int i, j, k;
+    i = low;
+    j = mid + 1;
+    k = low;
+    int *b = new int[999];
+    while (i <= mid && j <= high)
+    {
+        if (a[i] < a[j])
+        {
+            b[k++] = a[i++];
+        }
+        else if (a[j] < a[i])
+        {
+            b[k++] = a[j++];
+        }
+        else
+        {
+            b[k++] = a[i];
+            b[k++] = a[i++];
+            j++;
+        }
+    }
+    for (; i <= mid; i++)
+    {
+        b[k++] = a[i];
+    }
+    for (; j <= high; j++)
+    {
+        b[k++] = a[j];
+    }
+    for (i = low; i <= high; i++)
+    {
+        a[i] = b[i];
+    }
+}
+void Imergesort(int *a, int n)
+{
+    int p, low, mid, high, i;
+    for (p = 2; p <= n; p *= 2)
+    {
+        for (i = 0; i + p - 1 < n; i += p)
+        {
+            low = i;
+            high = i + p - 1;
+            mid = (low + high) / 2;
+            merge(a, low, mid, high);
+        }
+        if (n - i > p / 2)
+        {
+            low = i;
+            high = i + p - 1;
+            mid = (low + high) / 2;
+            merge(a, low, mid, n - 1);
+        }
+    }
+    if (p / 2 < n)
+    {
+        merge(a, 0, p / 2 - 1, n - 1);
+    }
+}
+int main()
+{
+    int arr[] = {7, 74, 26, 23, 45, 27, 35, 77, 54, 33, 12, 45, 43}, n = 13;
+    Imergesort(arr, n);
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+    return 0;
+}
