@@ -38,6 +38,7 @@ int main()
     cin >> t;
     while (t--)
     {
+    
         int n, m, i;
         cin >> n >> m;
         int arr1[n], arr2[m];
