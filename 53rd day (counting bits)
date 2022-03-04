@@ -1,0 +1,28 @@
+class Solution {
+    int count(int n)
+    {
+    int ans[] = new int[90], i = 0;
+    while (n > 0)
+    {
+        ans[i++] = n % 2;
+        n /= 2;
+    }
+    n = 0;
+    for (int j = 0; j < i; j++)
+    {
+        if (ans[j] == 1)
+        {
+            n++;
+        }
+    }
+    return n;
+    }
+    public int[] countBits(int n) {
+        int returnSize[]= new int[n+1];
+      for(int i=0;i<=n;i++)
+    {
+        returnSize[i]=count(i);
+    }
+    return returnSize;  
+    }
+}
