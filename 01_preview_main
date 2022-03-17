@@ -5,6 +5,7 @@ int findmax(int *a, int n)
     int m = INT_MIN;
     for (int i = 0; i < n; i++)
     {
+    
         m =  max(m, a[i]);
     }
     return m;
