@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        int n, l, cs, ce, rs, re, k;
+        cin >> n;
+        int mm[n][n];
+        cs = rs = 0;
+        ce = re = n - 1;
+        k = 1;
+        while (cs <= ce && rs <= re)
+        {
+            for (l = cs; l <= ce; l++)
+            {
+                mm[rs][l] = k++;
+            }
+            rs++;
+            for (l = rs; l <= re; l++)
+            {
+                mm[l][ce] = k++;
+            }
+            ce--;
+            for (l = ce; l >= cs; l--)
+            {
+                mm[re][l] = k++;
+            }
+            re--;
+            for (l = re; l >= rs; l--)
+            {
+                mm[l][cs] = k++;
+            }
+            cs++;
+        }
+        for (re = 0; re < n; re++)
+        {
+            for (ce = 0; ce < n; ce++)
+            {
+                cout << mm[re][ce] << " ";
+            }
+            cout << endl;
+        }
+    }
+    return 0;
+}
