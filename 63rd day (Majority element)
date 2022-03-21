@@ -1,0 +1,41 @@
+int majorityElement(int *ar, int n)
+{
+    int p[99999] = {0};
+    int nn[99999] = {0};
+    for (int i = 0; i < n; i++)
+    {
+        if (ar[i] >= 0)
+        {
+            p[ar[i]]++;
+        }
+        else
+        {
+            nn[-1 * ar[i]]++;
+        }
+    }
+    int max_pos = -1000;
+    int ans_pos = -1;
+    for (int i = 0; i < 99999; i++)
+    {
+        if (p[i] > max_pos)
+        {
+            max_pos = p[i];
+            ans_pos = i;
+        }
+    }
+    int max_neg = -1000;
+    int ans_neg = -1;
+    for (int i = 0; i < 99999; i++)
+    {
+        if (nn[i] > max_neg)
+        {
+            max_neg = nn[i];
+            ans_neg = i;
+        }
+    }
+    if (ans_pos >= ans_neg)
+    {
+        return ans_pos;
+    }
+    return -1 * ans_neg;
+}
