@@ -36,7 +36,6 @@ void countsort(int a[], int n)
         }
     }
 }
-
 int main()
 {
     int arr[] = {7, 74, 26, 23, 45, 27, 35, 77, 0, 0, 54, 33, 12, 45, 43}, n = 15;
