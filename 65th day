@@ -1,0 +1,43 @@
+//https://codeforces.com/problemset/problem/492/B
+
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long long int n, l;
+    double ans = 0;
+    cin >> n >> l;
+    long long int arr[n];
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    sort(arr, arr + n);
+    if (arr[0] == 0 and arr[n - 1] == l)
+    {
+        ans = INT_MIN;
+        for (int i = 0; i < n - 1; i++)
+        {
+            ans = max(ans, (double)(arr[i + 1] - arr[i]));
+        }
+        cout << fixed << ans / 2 << endl;
+    }
+    else
+    {
+        ans = INT_MIN;
+        for (int i = 0; i < n - 1; i++)
+        {
+            ans = max(ans, (double)(arr[i + 1] - arr[i]));
+        }
+        ans /= 2;
+        if (arr[0] <= ans && (l - arr[n - 1]) <= ans)
+        {
+            cout << fixed << ans << endl;
+        }
+        else
+        {
+            cout << fixed << max(arr[0], (l - arr[n - 1])) << endl;
+        }
+    }
+    return 0;
+}
