@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+const int N = 1e7 + 10;
+long long int arr[N];
+int main()
+{
+    int n, m;
+    cin >> n >> m;
+    while (m--)
+    {
+        int a, b, k;
+        cin >> a >> b >> k;
+        arr[a] += k;
+        arr[b + 1] -= k;
+    }
+    for (int i = 1; i <= n; i++)
+    {
+        arr[i] += arr[i - 1];
+    }
+    cout << *max_element(arr, arr + N);
+    return 0;
+}
