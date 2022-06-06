@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+void solution()
+{
+    string a, b;
+    cin >> a >> b;
+    int hsh[200] = {0}, ans = 0;
+    for (int i = 0; i < a.size(); i++)
+    {
+        hsh[a[i]] = 1;
+    }
+    for (int i = 0; i < b.size(); i++)
+    {
+        if (hsh[b[i]] == 1)
+        {
+            ans++;
+        }
+    }
+    cout << ans << endl;
+}
+int main()
+{
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        solution();
+    }
+    return 0;
+}
