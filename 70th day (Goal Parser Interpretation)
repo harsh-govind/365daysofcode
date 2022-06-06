@@ -1,0 +1,26 @@
+class Solution {
+public:
+    string interpret(string s) {
+    int l = 0;
+    for (int i = 0; i < s.size(); i++)
+    {
+        if (s[i] == 'G')
+        {
+            s[l++] = 'G';
+        }
+        else if (s[i] == '(' && s[i + 1] == ')')
+        {
+            s[l++] = 'o';
+            i++;
+        }
+        else
+        {
+            s[l++] = 'a';
+            s[l++] = 'l';
+            i = i + 3;
+        }
+    }
+    s.resize(l);
+    return s;
+    }
+};
