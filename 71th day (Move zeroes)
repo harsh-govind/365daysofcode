@@ -1,0 +1,29 @@
+class Solution {
+    public void moveZeroes(int[] arr) {
+       int i, zp = -1, n=arr.length;
+        for (i = 0; i < n; i++)
+        {
+            if (arr[i] == 0)
+            {
+                zp = i;
+                break;
+            }
+        }
+        if (zp == -1)
+        {
+            return;
+        }
+        for (i = 0; i < n; i++)
+        {
+            if (arr[i] != 0 && i>zp)
+            {
+                arr[zp++] = arr[i];
+            }
+        }
+        for (i = zp; i < n; i++)
+        {
+            arr[i] = 0;
+        } 
+        return;
+    }
+}
