@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        int n, k;
+        cin >> n >> k;
+        multiset<long long int> m;
+        for (int i = 0; i < n; i++)
+        {
+            long long int temp;
+            cin >> temp;
+            m.insert(temp);
+        }
+        long long int candy_eaten = 0;
+        for (int i = 0; i < k; i++)
+        {
+            auto it = (--m.end());
+            long long int current_candy = *it;
+            candy_eaten += current_candy;
+            m.erase(it);
+            m.insert(current_candy / 2);
+        }
+        cout << candy_eaten << endl;
+    }
+    return 0;
+}
