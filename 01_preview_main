@@ -10,7 +10,6 @@ int findmax(int *a, int n)
     return m;
 }
 
-
 void countsort(int a[], int n)
 {
     int *c, i, j, mx;
