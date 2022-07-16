@@ -23,6 +23,7 @@ void countsort(int a[], int n)
         c[a[i]]++;
     }
 
+
     i = j = 0;
     while (j < mx + 1)
     {
