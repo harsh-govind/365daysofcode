@@ -27,4 +27,6 @@ void rotate(int arr[], int n)
         i--;
     }
     arr[0] = x;
+
+
 }
