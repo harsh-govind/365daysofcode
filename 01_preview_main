@@ -7,8 +7,6 @@ int findmax(int *a, int n)
     {
         m =  max(m, a[i]);
     }
-
-
     return m;
 }
 
