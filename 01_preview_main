@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-
-
 using namespace std;
 int findmax(int *a, int n)
 {
